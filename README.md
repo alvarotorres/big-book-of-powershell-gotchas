@@ -1,1 +1,1 @@
-PowerShell is full of "gotchas" - little things that just get in your way and are hard to figure out on your own. This short book is intended to help you figure them out and avoid them.
+PowerShell está lleno de "trucos" - pequeñas cosas que a veces se interponen en su camino y son difíciles de averiguar por su cuenta. Este breve libro está destinado a ayudarle a resolverlos y evitarlos.
