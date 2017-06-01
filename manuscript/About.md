@@ -1,4 +1,4 @@
-# EL gran libro de trucos de PowerShell
+# El gran libro de trucos de PowerShell
 
 Por Don Jones (mayormente)
 
