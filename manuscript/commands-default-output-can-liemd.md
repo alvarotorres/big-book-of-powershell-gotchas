@@ -1,14 +1,14 @@
-# Commands' Default Output Can Lie
-Well, perhaps not “lie,” but certainly “mislead.”
+# La salida predeterminada de los comandos puede mentir
+Bien, tal vez no "mentir", pero ciertamente si "engañar".
 
-Try running Get-EventLog -LogName Security on your computer. Notice the column headers in the output?
+Intente ejecutar Get-EventLog -LogName Security en su equipo. ¿Nota los encabezados de columna en la salida?
 
-* The output doesn’t include all of the properties that are available behind the scenes.
-* Some of the column headers don’t actually list the correct name for that property.
+* La salida no incluye todas las propiedades que están disponibles tras bambalinas.
+* Algunos de los encabezados de columna realmente no muestran el nombre correcto para esa propiedad.
 
-This can be really frustrating, because if you try to use Select-Object with an incorrect name, it’ll just spit out blanks. The confusion arises because many commands’ output are pre-formatted using a default view. That means you’re not actually seeing the command’s “output,” you’re seeing a “massaged” version of it.
+Esto puede ser realmente frustrante, porque si intenta usar Select-Object con un nombre incorrecto, solo obtendrá espacios en blanco. La confusión surge porque la salida de muchos comandos se pre-formatea usando una vista predeterminada. Eso significa que en realidad no está viendo la "salida" del comando, sino viendo una versión "maquillada" de la misma
 
-To see the complete output, with the correct property names, run your command and pipe it to `| Format-List *` (or fl * if you prefer). With commands that produce a great deal of output, that can take some time to run and create a messy screen; a shorter version can be obtained by piping your command to `| Select -First 1 | Format-List *`. You’ll see one output object, all of its properties, and the correct property names to use in other commands.
+Para ver la salida completa, con los nombres de propiedad correctos, ejecute su comando y canalícelo a `| Format-List *` (o fl * si lo prefiere). Los comandos que producen una gran cantidad de datos de salida pueden tomar algún tiempo para ejecutar y crear una pantalla “sucia”. Una versión más corta puede ser enviar mediante la canalización (pipeline) de su comando a  `| Select -First 1 | Format-List *`. Verá un objeto de salida con todas sus propiedades y los nombres correctos de las mismas listos para usar en otros comandos.
 
 
 
