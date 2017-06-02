@@ -3,7 +3,7 @@ Esto no un “truco” pero vale la pena revisarlo para que no resulte confuso. 
 
 ![image041.png](images/image041.png)
 
-(Paréntesis) se utilizan para encerrar expresiones, como la expresión foreach() y en ciertos casos para resaltar alguna sintaxis declarativa. Por ejemplo el bloque param () y en el atributo [parameter()].
+(Paréntesis) se utilizan para encerrar expresiones, como la expresión foreach() y en ciertos casos para resaltar alguna sintaxis declarativa. Por ejemplo el bloque param() y en el atributo [parameter()].
 
 [Corchetes cuadrados] se utilizan alrededor de algunos atributos, como en [CmdletBinding()], y alrededor de tipos de datos como [string]. También se utilizan para indicar arrays - como en [string[]]. Pueden aparecer en otros lugares.
 
