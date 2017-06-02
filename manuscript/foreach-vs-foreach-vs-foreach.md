@@ -1,15 +1,16 @@
 # ForEach vs ForEach vs ForEach
-PowerShell's three lookalike friends can confusing, especially for newcomers. Basically, you've got two entities:
+PowerShell tiene tres comandos de aspecto similar que pueden confundir, especialmente a los recién llegados. Básicamente, usted tiene dos entidades:
 
-- The ForEach-Object cmdlet, which has an alias ForEach (it also has the alias %). This is meant to operate in the pipeline, and it uses a ?Process parameter that accepts a scriptblock.
-- The ForEach scripting construct. This has a specific syntax, is not intended to be used in the pipeline, and does not have an alias.
+- El Cmdlet ForEach-Object, que tiene un alias ForEach (también tiene el alias %). Está destinado a funcionar en la canalización (pipeline), y utiliza un parámetro de proceso que acepta un ScriptBlock.
 
-Here's all three in action, in a very simplistic example:
+- La declaración ForEach. Tiene una sintaxis específica, no está destinado a ser utilizado en la canalización (pipeline) y no tiene un alias.
+
+Aquí están los tres en acción, en un ejemplo muy simple:
 
 ![image013.png](images/image013.png)
 
-The big difference is that, in the pipeline, ForEach-Object _processes one object at a time. _That means it can be slower, since that scriptblock must be interpreted on each iteration. It also tends to use less memory, since objects streaming down the pipeline one at a time don't all have to be bunched up in a variable first.
+La gran diferencia es que, en la canalización (pipeline), ForEach-Object procesa un objeto a la vez. _Esto significa que puede ser más lento,_ ya que ese ScriptBlock debe interpretarse en cada iteración. También tiende a usar menos memoria, ya que los objetos fluyen por la canalización (pipeline) uno a la vez y no tienen que ser agrupados en una variable primero.
 
-The scripting construct tends to be faster, but it often has more memory overhead, because you have to give it the entire collection of objects at once, instead of streaming objects into it one at a time.
+La declaración ForEach tiende a ser más rápida, pero a menudo tiene más sobrecarga de memoria, ya que tiene que iterar sobre toda la colección de objetos a la vez, en lugar de transmitir objetos de uno en uno cada vez.
 
-Both use vaguely similar syntax, but there are differences. It's important to understand **that they are not the same,** and that they execute differently. It's confusing because "ForEach" is both an alias and a scripting construct; the shell determines which you're using by looking at the context in which you're using it.
+Ambos usan una sintaxis parecida, pero hay diferencias. Es importante entender que no son los mismos comandos, y que se ejecutan de manera diferente. Es confuso porque "ForEach" es tanto un alias como una declaración de Scripting. El Shell determina qué se está utilizando mirando el contexto en el que lo está utilizando.
