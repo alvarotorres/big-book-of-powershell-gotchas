@@ -1,14 +1,14 @@
-# [Bloody] {Awful} (Punctuation)
-This isn't so much a "gotcha" as it is just plain confusing. PowerShell's nuts with the punctuation.
+# [Sangriento] {Horrible} (Puntuación)
+Esto no un “truco” pero vale la pena revisarlo para que no resulte confuso. Las tuercas de PowerShell con la puntuación.
 
 ![image041.png](images/image041.png)
 
-(Parentheses) are used to enclose expressions, such as the ForEach() construct's expression, and in certain cases to contain declarative syntax. You see that in the Param() block, and in the [Parameter()] attribute.
+(Paréntesis) se utilizan para encerrar expresiones, como la expresión foreach() y en ciertos casos para resaltar alguna sintaxis declarativa. Por ejemplo el bloque param () y en el atributo [parameter()].
 
-[Square brackets] are used around some attributes, like [CmdletBinding()], and around data types like [string], and to indicate arrays - as in [string[]]. They pop up a few other places, too.
+[Corchetes cuadrados] se utilizan alrededor de algunos atributos, como en [CmdletBinding()], y alrededor de tipos de datos como [string]. También se utilizan para indicar arrays - como en [string[]]. Pueden aparecer en otros lugares.
 
-{Curly brackets} nearly always contain executable code, as in the Try{} block, the BEGIN{} block, and the function itself. It's also used to express hash table literals (like @{}).
+{Corchetes} casi siempre contienen código ejecutable, como en el bloque try{}, el bloque begin{} y la función en sí. También se utilizan para expresar literales de tablas hash (como @{}).
 
-If your keyboard had a few dozen more buttons, PowerShell probably wouldn't have had to have all these overlapping uses of punctuation. But it does. At this point, they're pretty much just part of the shell's "cost of entry," and you'll have to get used to them.
+Si el teclado tuviera algunos botones más, PowerShell no habría tenido que tener todos estos usos “incorporados” de caracteres de puntuación. Pero lo hace. En este punto, son casi una parte del "coste de entrada" del Shell, por lo que tendrá que acostumbrarse a ellos.
 
 
