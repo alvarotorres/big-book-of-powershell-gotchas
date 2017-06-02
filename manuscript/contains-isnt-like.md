@@ -13,7 +13,7 @@ El enfoque correcto es utilizar el operador -Like, que de hecho hace una compara
 
 Voy a dejar pasar la idea de que la respuesta realmente correcta es ejecutar Stop-Process -Name *notepad *, porque estaba apuntando a un ejemplo simple aquí. Pero ... no piense demasiado. A veces un script en un bucle foreach no es el mejor enfoque.
 
-Así que de todos modos, ¿qué hacen -Contains (y su amigo, -NotContains) en realidad? Son similares a los operadores -in y -notin introducidos en PowerShell v3. Estos operadores pueden causar un poco de confusión. Lo que hacen es comprobar si una colección de objetos contiene un único objeto dado. Por ejemplo:
+Así que de todos modos, ¿qué hacen -Contains (y su amigo, -NotContains) en realidad? Son similares a los operadores -In y -NotIn introducidos en PowerShell v3. Estos operadores pueden causar un poco de confusión. Lo que hacen es comprobar si una colección de objetos contiene un único objeto dado. Por ejemplo:
 
 ![image019.png](images/image019.png)
 
