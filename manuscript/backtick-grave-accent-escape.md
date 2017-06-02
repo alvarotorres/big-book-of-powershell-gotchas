@@ -4,7 +4,7 @@ A menudo va a encontrarse con esto
 
 ![image061.png](images/image061.png)
 
-No, no es un píxel muerto en el monitor o un trozo de tóner perdido en la página, es la marca de acento grave o backtick. \` Es el carácter de escape de PowerShell. En este ejemplo, está "escapando" del retorno de carro invisible al final de la línea, eliminando su propósito especial como final de línea lógica, simplemente haciendo que sea un retorno de carro literal.
+No, no es un píxel muerto en el monitor o un trozo de tóner perdido en la página, es la marca de acento grave o backtick. \` Es el carácter de escape de PowerShell. En este ejemplo, está "escapando" el retorno de carro invisible al final de la línea, eliminando su propósito especial como final de línea lógica, simplemente haciendo que sea un retorno de carro literal.
 
 No me gusta el backtick utilizado de esta manera.
 
