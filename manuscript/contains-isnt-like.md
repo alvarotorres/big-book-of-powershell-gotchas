@@ -5,7 +5,7 @@ Si tuviera un centavo por cada vez que he visto esto:
 
 ![image015.png](images/image015.png)
 
-Entiendo cómo sucede esto. El operador -Contains parece que debería comprobar si el nombre de un proceso contiene las letras "notepad". Pero eso no es lo que hace.
+Entiendo cómo sucede. El operador -Contains parece que debería comprobar si el nombre de un proceso contiene las letras "notepad". Pero eso no es lo que hace.
 
 El enfoque correcto es utilizar el operador -Like, que de hecho hace una comparación de cadena con comodines:
 
