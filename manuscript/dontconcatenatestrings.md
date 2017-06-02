@@ -1,20 +1,20 @@
-# Don’t+Concatenate+Strings
-I really dislike string concatenation. It's like forcing someone to cuddle with someone they don't even know. Rude.
+# No+Concatene+Strings
+Realmente me disgusta la concatenación de cadenas. Es como obligar a alguien a acurrucarse con alguien que ni siquiera conocen. Grosero.
 
 ![image043.png](images/image043.png)
 
-And completely unnecessary, when you use double quotes.
+Y completamente innecesario, cuando se utilizan comillas dobles.
 
 ![image045.png](images/image045.png)
 
-Same end effect. In double quotes, PowerShell will look for the $ character. When it finds it:
+Mismo efecto al final. Usando comillas dobles, PowerShell buscará el carácter $. Cuando lo encuentre:
 
-1. If the next character is a { then PowerShell will take everything to the matching } as a variable name, and replace the whole thing with that variable's contents. For example, putting ${my variable} inside double quotes will replace that with the contents of ${my variable}.
-2. If the next character is a ( then PowerShell will take everything to the matching ) and execute it as code. So, I executed $wmi.serialnumber to access the serialnumber property of whatever object was in the $wmi variable.
-3. Otherwise, PowerShell will take every character that is legal for a variable name, up until the first illegal variable name character, and replace it with that variable. That's how $computer works in my example. The space after r isn't legal for a variable name, so PowerShell knows the variable name stops at r.
+1. Si el siguiente carácter es { entonces PowerShell llevará todo a la concordancia } como un nombre de variable, y reemplazará todo con el contenido de esa variable. Por ejemplo, poner $ {mi variable} dentro de comillas dobles reemplazará con el contenido de $ {mi variable}.
+2. Si el siguiente carácter es un ( entonces PowerShell llevará todo a la coincidencia ) y lo ejecutara como si fuera código. Por lo que, ejecuté $wmi.serialnumber para acceder a la propiedad serialnumber del objeto que se encontraba en la variable $wmi.
+3. De lo contrario, PowerShell tomará todos los caracteres que sean legales para un nombre de variable, hasta el primer carácter de nombre de variable ilegal, y lo reemplazará con esa variable. Así es como funciona $computer en mi ejemplo. El espacio después de la r no es legal para un nombre de variable, por lo que PowerShell sabe que el nombre de la variable se detiene en r.
 
-There's a sub-gotcha here:
+Una cosa para resaltar aquí:
 
 ![image047.png](images/image047.png)
 
-This won't work as expected. In most cases, $wmi will be replaced by an object type name, and .serialnumber will still be in there. That's because . isn't a legal variable name character, so PowerShell stops looking at the variable with the letter i. It replaces $wmi with its contents. You see, in the previous example, I'd put $($wmi.serialnumber), which is a subexpression, and which works. The parentheses make their contents execute as code.
+Esto no funcionará como se esperaba. En la mayoría de los casos, $wmi será reemplazado por un nombre de tipo de objeto y .serialnumber seguirá allí. Eso ocurre porque . no es un nombre de variable legal, por lo que PowerShell deja de “observar” la variable con la letra i. Entonces, reemplaza $wmi con su contenido. Usted vio en el ejemplo anterior, el uso de $($wmi.serialnumber), que es una subexpresión y funciona. Los paréntesis hacen que su contenido se ejecute como código..
