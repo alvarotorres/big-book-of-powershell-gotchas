@@ -1,5 +1,5 @@
 # ForEach vs ForEach vs ForEach
-PowerShell tiene tres comandos de aspecto similar que pueden confundir, especialmente a los recién llegados. Básicamente, usted tiene dos entidades:
+PowerShell tiene comandos de aspecto similar que pueden confundir, especialmente a los recién llegados. Por ejemplo, usted tiene dos entidades ForEach:
 
 - El Cmdlet ForEach-Object, que tiene un alias ForEach (también tiene el alias %). Está destinado a funcionar en la canalización (pipeline), y utiliza un parámetro de proceso que acepta un ScriptBlock.
 
