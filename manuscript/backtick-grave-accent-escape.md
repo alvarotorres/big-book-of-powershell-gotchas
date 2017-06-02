@@ -24,9 +24,9 @@ Sólo tiene que ser más listo.
 
 Para empezar, he puesto mis comandos Get-WmiObject en una tabla hash, por lo que ahora puedo dar un formato agradable y bonito. Cada línea termina en un punto y coma, y PowerShell me permite romper la línea después de cada punto y coma. Incluso si agrego un espacio adicional o un Tab después del punto y coma, funcionará bien. Entonces hago “Splat” de esos parámetros al comando Get-WmiObject.
 
-Después de Get-WmiObject, tengo un carácter Pipe –y PowerShell admite un “Enter” luego de un carácter Pipe.
+Después de Get-WmiObject, tengo un carácter Pipe, y PowerShell admite un “Enter” luego de un carácter Pipe.
 
 Usted notará al final de Select-Object que se puede utilizar una coma también.
 
-Así que termino con un formato que parece al menos tan bueno, si no mejor, porque no tiene un backtick \` flotando por todas partes.
+Así termino con un formato que parece al menos tan bueno, si no mejor, porque no tiene un backtick \` flotando por todas partes.
 
