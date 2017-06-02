@@ -1,14 +1,14 @@
-# Accumulating Output in a Function
+# Acumulando la salida en una función
 
 
-This is a bit of an "advanced" gotcha, but it's one that many experienced developers will run into. Here's a very trimmed-down example, just to make the point (it isn't functional, as the command used is fictional):
+Esto es un truco un poco "avanzado", pero es uno en que muchos desarrolladores experimentados caen. Aquí hay un ejemplo, sólo para demostrar el punto (no es funcional, ya que el comando utilizado es ficticio):
 
 ![image009.png](images/image009.png)
 
-The problem here is that the function can generate multiple output objects, and the programmer is accumulating those into the $output variable. That means this function won't output anything until it's completely finished running. That isn't how PowerShell commands (and functions _are_ commands) are usually meant to work.
+El problema es que la función puede generar múltiples objetos de salida, y el programador está acumulándolos en la variable de $output. Esto significa que esta función no emitirá nada hasta que su ejecución esté completamente terminada. No es así como los comandos PowerShell (y las funciones) suelen estar diseñados para funcionar.
 
-PowerShell commands should _usually_ output each object to the pipeline, one at a time, as those objects are ready. That allows the _pipeline_ to accumulate the output, and to immediately pass it along to whatever is next in the pipeline. That's how PowerShell commands are intended to work. Now, there are always exceptions. Sort-Object, for example, _has_ to accumulate its output, because it can't actually sort anything until it has _all_ of them. So it's called a _blocking command, _because it "blocks" the pipeline from doing anything else until it produces its output. But that's an exception.
+Los comandos de PowerShell _normalmente_ deben enviar cada objeto a la canalización (pipeline), uno a la vez, apenas esos objetos estén listos. Esto permite que la canalización (pipeline) acumule la salida, e inmediatamente la pase a lo largo de la siguiente función o comando en la canalización (pipeline). Así funcionan los comandos en PowerShell. Ahora, siempre hay excepciones. Sort-Object, por ejemplo, _tiene_ que acumular su salida, porque en realidad no puede ordenar nada hasta que tenga _todos_ los elementos. Es por esto que se le llama un comando _blocking, porque "bloquea" la canalización (pipeline) completamente hasta que se produce su salida. Pero eso es una excepción.
 
-It's usually easy to fix this, by simply outputting to the pipeline instead of accumulating:
+Normalmente esto es muy fácil de solucionar, simplemente enviando a la canalización (pipeline) directamente en lugar de acumular:
 
 ![image011.png](images/image011.png)
