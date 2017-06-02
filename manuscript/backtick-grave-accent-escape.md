@@ -1,32 +1,32 @@
 # Backtick, Grave Accent, Escape
 
-You'll see folks do this a lot:
+A menudo va a encontrarse con esto
 
 ![image061.png](images/image061.png)
 
-That isn't a dead pixel on your monitor or a stray piece of toner on the page, it's the grave accent mark or backtick. \` is PowerShell's escape character. In this example, it's "escaping" the invisible carriage return at the end of the line, removing its special purpose as a logical line-end, and simply making it a literal carriage return.
+No, no es un píxel muerto en el monitor o un trozo de tóner perdido en la página, es la marca de acento grave o backtick. \` Es el carácter de escape de PowerShell. En este ejemplo, está "escapando" del retorno de carro invisible al final de la línea, eliminando su propósito especial como final de línea lógica, simplemente haciendo que sea un retorno de carro literal.
 
-I don't like the backtick used this way.
+No me gusta el backtick utilizado de esta manera.
 
-First, it's hard to see. Second, if you get any extra whitespace after it, it'll no longer escape the carriage return, and your script will break. The ISE even figures this out:
+Primero, es difícil de ver. Segundo, si se deja un espacio en blanco extra después de él, ya no estará escapando el retorno de carro, y el script se romperá:
 
 ![image063.png](images/image063.png)
 
-Carefully compare the -ComputerName parameter - in this second example, it's the wrong color for a parameter name, because I added a space after the backtick on the preceding line. IMPOSSIBLE to track these down.
+Observe cuidadosamente el parámetro -computername - en este segundo ejemplo. Fíjese como se muestra un  color incorrecto para un nombre de parámetro. Ocurre porque he añadido un espacio después del backtick en la línea anterior. IMPOSIBLE de rastrear.
 
-And the backtick is unnecessary as a line continuation character. Let me explain why:
+Y el backtick es innecesario como carácter de continuación de línea. Permítanme explicar por qué:
 
-PowerShell already allows you to hit Enter in certain situations. You just have to learn what those situations are, and learn to take advantage of them. I totally understand the desire to have neatly-formatted code - I preach about that all the time, myself - but you don't have to rely on a little three-pixel character to get nicely formatted code.
+PowerShell ya le permite agregar un “Enter” en ciertas situaciones. Usted solo tiene que aprender cuáles son esas situaciones, y luego tomar ventaja de ellas. Entiendo totalmente el deseo de tener código perfectamente formateado - predico sobre eso todo el tiempo, yo mismo - pero no tiene que confiar en un personaje como el backtick para obtener código bien formateado.
 
-You just have to be clever.
+Sólo tienes que ser más listo.
 
 ![image065.png](images/image065.png)
 
-To begin, I've put my Get-WmiObject commands in a hash table, so I can format them all nice and pretty. Each line ends on a semicolon, and PowerShell lets me line-break after each semicolon. Even if I get an extra space or tab after the semicolon, it'll work fine. I then splat those parameters to the Get-WmiObject command.
+Para empezar, he puesto mis comandos Get-WmiObject en una tabla hash, por lo que ahora puedo dar un formato agradable y bonito. Cada línea termina en un punto y coma, y PowerShell me permite romper la línea después de cada punto y coma. Incluso si agrego un espacio adicional o un Tab después del punto y coma, funcionará bien. Entonces hago “Splat” de esos parámetros al comando Get-WmiObject.
 
-After Get-WmiObject, I have a pipe character - and you can legally line-break after that, too.
+Después de Get-WmiObject, tengo un carácter Pipe –y PowerShell admite un “Enter” luego de un carácter Pipe.
 
-You'll notice on Select-Object that breaking after a comma as well.
+Usted notará al final de Select-Object que se puede utilizar una coma también.
 
-So I end up with formatting that looks at least as good, if not better, because it doesn't have that little \` floating all over the place.
+Así que termino con un formato que parece al menos tan bueno, si no mejor, porque no tiene un backtick \` flotando por todas partes.
 
