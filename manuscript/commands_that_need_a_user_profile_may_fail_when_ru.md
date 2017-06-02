@@ -1,7 +1,7 @@
-# Commands that Need a User Profile May Fail When Run Remotely
-Many commands act against the currently logged-on user’s profile. Those commands can sometimes fail when you run them over a Remoting connection, such as by using Invoke-Command or Enter-PSSession. For example, many installers default to creating per-user icons, and those can fail when run remotely – even when run in a “silent install” mode.
+# Comandos que necesitan un perfil de usuario pueden fallar cuando se ejecuta de forma remota
 
-The problem is that, when you connect to a remote computer, you aren’t spinning up a complete user environment. You’re technically not “logging on” to the machine in the usual sense. You’re authenticating, yes, but in much the same way that you’d authenticate to a shared folder. Your remote connection doesn’t have a complete user profile, and so anything that’s expecting one can get errors and fail (even if they don’t show those errors).
+Muchos comandos actúan utilizando el perfil del usuario que ha iniciado sesión actualmente. Estos comandos a veces pueden fallar cuando los ejecuta a través de una conexión remota, como con Invoke-Command o Enter-PSSession. Por ejemplo, muchos instaladores predeterminan la creación de iconos por usuario y pueden fallar cuando se ejecutan remotamente, incluso cuando se ejecutan en un modo de "instalación silenciosa".
 
-There’s no easy fix for this, unfortunately. 
+El problema es que, cuando se conecta a un equipo remoto, no está generando un entorno de usuario completo. Técnicamente no está "conectándose" a la máquina en el sentido usual. Se está autenticando, sí, pero de la misma manera que si se autenticara a una carpeta compartida. Su conexión remota no tiene un perfil de usuario completo, por lo que cualquier cosa que se espere puede obtener errores y fallar (incluso si no muestran esos errores).
 
+No hay solución fácil para esto, por desgracia.
