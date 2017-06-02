@@ -16,9 +16,9 @@ Observe cuidadosamente el parámetro -computername - en este segundo ejemplo. F�
 
 Y el backtick es innecesario como carácter de continuación de línea. Permítanme explicar por qué:
 
-PowerShell ya le permite agregar un “Enter” en ciertas situaciones. Usted solo tiene que aprender cuáles son esas situaciones, y luego tomar ventaja de ellas. Entiendo totalmente el deseo de tener código perfectamente formateado - predico sobre eso todo el tiempo, yo mismo - pero no tiene que confiar en un personaje como el backtick para obtener código bien formateado.
+PowerShell ya le permite agregar un “Enter” en ciertas situaciones. Usted solo tiene que aprender cuáles son esas situaciones, y luego tomar ventaja de ellas. Entiendo totalmente el deseo de tener código perfectamente formateado - predico sobre eso todo el tiempo - pero no tiene que confiar en un personaje como el backtick para obtener código bien formateado.
 
-Sólo tienes que ser más listo.
+Sólo tiene que ser más listo.
 
 ![image065.png](images/image065.png)
 
