@@ -1,19 +1,19 @@
-# A Crowd isn’t an Individual
+# Una multitud no es un individuo
 
-A very common newcomer mistake:
+Un error muy común de novato:
 
 ![image067.png](images/image067.png)
 
-Here, the person is treating everything like it contains only one value. But $computername might contain multiple computer names (that's what [string[]] means), meaning $bios and $os will contain multiple items too. You'll often have to enumerate those to get this working right:
+Aquí, el problema es que se está tratando todo como si estuviera compuesto de un sólo un valor. Pero aqupi $computername puede contener varios nombres de equipo (eso es lo que significa  ([string[]]), lo que significa que tanto $bios como $os podrían contener también varios elementos. El truco está en enumerar $computername para conseguir el resultado deseado:
 
 ![image069.png](images/image069.png)
 
-Folks will run into this even in simple situations. For example:
+Algunas veces también se encontrará con esto, incluso en situaciones sencillas. Por ejemplo:
 
 ![image071.png](images/image071.png)
 
-PowerShell v2 won't react so nicely; in v3, the variable inside double quotes is $procs, and since that variable contains multiple objects, PowerShell implicitly enumerates them and looks for a Name property. You'll notice ".name" from the original string appended to the end - PowerShell didn't do anything with that.
+PowerShell v2 no reaccionará tan bien, pero en PowerShell v3, la variable dentro de comillas dobles $procs es una variable que contiene varios objetos. PowerShell los enumera implícitamente, además de buscar una propiedad llamada name. Fíjese en ".name" al final de la cadena - PowerShell no hizo nada con eso.
 
-You'd probably want to enumerate these:
+Es probable que mejor desee enumerar así:
 
 ![image073.png](images/image073.png)
