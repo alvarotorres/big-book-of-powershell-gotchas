@@ -35,7 +35,7 @@ Hay dos posibles soluciones. La primera es simplemente incluir las definiciones 
  }
  ```
  
-Otra técnica, disponible en PowerShell v3 y posterior, es utilizar el designador de variable $using. PowerShell pre-escanea el bloque de secuencia de comandos y pasará los valores de la(s) variable(s) local al (los) equipo(s) remoto(s).
+Otra técnica, disponible en PowerShell v3 y posterior, es utilizar el designador de variable $using. PowerShell pre-escanea el bloque de secuencia de comandos y pasará los valores de la(s) variable(s) local(es) al (los) equipo(s) remoto(s).
 
 ```
  $f1 = "D:\Scripts\folder1"
