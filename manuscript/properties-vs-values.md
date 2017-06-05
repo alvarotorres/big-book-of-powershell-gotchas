@@ -7,7 +7,7 @@ $names = Get-ADComputer -filter * |
  Get-CimInstance -Class Win32_BIOS -ComputerName $names 
  ```
  
-¿Sabe por qué esto no funcionará? Porque el resultado de Get-ADComputer es un objeto, que tiene propiedades. Usted probablemente sabía eso. Pero el resultado de Select-Object es también un objeto que tiene propiedades. Específicamente, en este caso, es un objeto "ADComputer " seleccionado, que tiene una sola propiedad: Name. 
+¿Sabe por qué esto no funcionará? Porque el resultado de Get-ADComputer es un objeto que tiene propiedades. Usted probablemente sabía eso. Pero el resultado de Select-Object es también un objeto que tiene propiedades. Específicamente, en este caso, es un objeto "ADComputer " seleccionado, que tiene una sola propiedad: Name. 
 
 Observe la ayuda del comando Get-CimInstance. El parámetro -ComputerName acepta objetos de tipo String. Así lo la ayuda. Pero un objeto ADComputer no es lo mismo que una cadena. La propiedad Name que se ha seleccionado contiene cadenas, pero no es una cadena en sí. Esto es una distinción enorme y es mejor no olvidarse de ello.
 
