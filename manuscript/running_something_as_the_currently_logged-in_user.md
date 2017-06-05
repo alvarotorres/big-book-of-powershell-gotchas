@@ -1,13 +1,13 @@
-# Running Something as the "Currently Logged-in User"
-A common PowerShell request is to be able to remotely kick off some code that runs under the account of the user that’s currently logged on to the remote machine, or the user who most often uses the remote machine.
+# Ejecutando algo como el "usuario actualmente conectado"
+Una solicitud de PowerShell común es poder iniciar de forma remota algún código que se ejecuta bajo la cuenta del usuario que está conectado actualmente a una máquina remota o el usuario que más a menudo utiliza la máquina remota.
 
-This is really difficult, and usually impractical.
+Esto es realmente difícil, y generalmente impráctico.
 
-First, understand that Windows is inherently a multi-user operating system. It doesn’t have a concept for “the currently logged-on user” because there might be many logged-on users. Even though client versions of Windows don’t technically permit multiple interactive logons, the base operating system acts as if it can.
+Primero, entender que Windows es inherentemente un sistema operativo multiusuario. No tiene un concepto para "el usuario actualmente conectado" porque puede haber muchos usuarios conectados. Aunque las versiones cliente de Windows no permiten técnicamente múltiples inicios de sesión interactivos, el sistema operativo base actúa como si pudiera.
 
-Second, as a multi-user OS, Windows’ job is to maintain a strict firewall around each user’s process space. You don’t want one user jumping into another’s space, because that would be a huge risk to security and stability. So you can’t easily log in as one user and run something that another user can “see.”
+Segundo, como un sistema operativo multiusuario, el trabajo de Windows es mantener un estricto aislamiento alrededor del espacio de proceso de cada usuario. Usted no quiere que un usuario salte en el espacio de trabajo a otro, porque eso sería un gran riesgo para la seguridad y la estabilidad. Es por esto que no puede iniciar sesión como un usuario y ejecutar algo que otro usuario puede "ver".
 
-For example, a common version of this request is for an admin to remotely make Notepad pop up in front of users, so they can remotely convey some important message. Sadly, Notepad is not a good instant messaging app, and Windows doesn’t make this easy. And, if you think about it, what would malware be able to do if this was possible? It’d be horrible!
+Por ejemplo, una versión común de esta solicitud es para que un administrador de manera remota abra el Bloc de Notas como una ventana (pop up) en frente de los usuarios, para presentar de forma remota mensajes importantes. Por desgracia, el Bloc de Notas no es una buena aplicación de mensajería instantánea y Windows no hace que esto sea fácil. Si lo piensa con más detalle, ¿se imagina que podría hacer el malware si esto fuera posible? Sería horrible!
 
-With very few, difficult exceptions, you can’t really run something “as another user on a remote machine.” One exception is if you know the remote user’s user name and password. If you do, you can establish a Remoting session to the computer using their credentials, and potentially have applications run in that user’s process space. But you can see how impractical that is in most situations.
+Con muy pocas excepciones, realmente no se puede ejecutar algo "como otro usuario en una máquina remota". Una excepción es si conoce el nombre de usuario y la contraseña del usuario remoto. Si lo conoce, puede iniciar una sesión de acceso remoto en la computadora mediante sus credenciales y, potencialmente, ejecutar aplicaciones en el espacio de proceso de ese usuario. Aunque eso es muy poco práctico en la mayoría de situaciones.
 
