@@ -1,9 +1,9 @@
-# PowerShell.exe isn’t PowerShell
+# PowerShell.exe no es PowerShell
 
-It’s important to understand that Windows PowerShell is actually an untouchable, behind-the-scenes engine. You as a mere human being cannot easily interact directly with PowerShell.
+Es importante entender que Windows PowerShell, detrás de escenas es en realidad un motor. Usted como un simple ser humano no puede interactuar directamente con PowerShell.
 
-Instead, you need a host application. A host embeds the engine internally, and then gives you a way to interact with it. For example, PowerShell.exe is a host application. It is built around the same Windows console host (ConHost.exe) as the old Cmd.exe command-line shell, but it embeds the PowerShell engine. You type commands, and the host hands those to the engine for execution. The host is also responsible for displaying any results ? in this case, on-screen.
+En su lugar, necesita una aplicación Host. Un Host incrusta el motor internamente, y luego le da una manera de interactuar con él. Por ejemplo, powershell.exe es una aplicación Host. Se construye alrededor de la misma consola de consola de Windows (conhost.exe) a través de la antigua shell de línea de comandos cmd.exe, pero incrustando el motor PowerShell. Se escriben los comandos y el Host los envía al motor para su ejecución. El Host también es responsable de mostrar cualquier resultado. En este caso, en pantalla.
 
-Why is this distinction important?
+¿Por qué es importante esta distinción?
 
-Because different hosts can behave in different ways. For example, the PowerShell ISE behaves a bit differently than the console host, and both of them behave very differently from Active Directory Administration Center ? another PowerShell host.
+Porque diferentes Hosts pueden comportarse de diferentes maneras. Por ejemplo, el PowerShell ISE se comporta un poco diferente que el Host de la consola, y ambos se comportan de manera muy diferente de Active Directory Administration Center, otro host de PowerShell.
