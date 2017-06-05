@@ -24,9 +24,9 @@ $names = Get-ADComputer -filter * |
  Get-CimInstance -Class Win32_BIOS -ComputerName $names
 ```
 
-¿Ve la diferencia? -ExpandProperty obtiene sólo el contenido de la propiedad especificada, en lugar de devolver un objeto que sólo tiene esa propiedad. ¿Quiere una manera sencilla de probar esto en el shell? Ejecute estos comandos:
+¿Ve la diferencia? -ExpandProperty obtiene sólo el contenido de la propiedad especificada, en lugar de devolver un objeto que sólo tiene esa propiedad. ¿Quiere una manera sencilla de probar esto en el shell? Ejecute este par de comandos:
 
 ```
 Get-Service | Select -Property Name | Get-Member
- Get-Service | Select -ExpandProperty Name | Get-Member
+Get-Service | Select -ExpandProperty Name | Get-Member
 ```
