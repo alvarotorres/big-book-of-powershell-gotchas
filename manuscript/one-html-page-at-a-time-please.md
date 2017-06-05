@@ -1,14 +1,14 @@
-# One HTML Page at a Time, Please
-This drives me batty:
+# Una página HTML a la vez, por favor
+Esto me vuelve loco:
 
 ![image037.png](images/image037.png)
 
-What's happening is that someone ran two command, piping the output of each to ConvertTo-HTML, and essentially sticking both HTML pages into a single file. What drives me really nuts is that Internet Explorer is okay with that nonsense.
+Lo que está pasando es que alguien ejecutó dos comandos, canalizando la salida de cada uno a ConvertTo-HTML, y esencialmente combinando ambas páginas HTML en un solo archivo. Lo que me realmente me vuelve loco es que Internet Explorer está bien con esa tontería.
 
-HTML files are allowed to start with one top-level <HTML> tag, but if you check out that file you'll see that it contains two. Here's the middle bit:
+Los archivos HTML pueden empezar con una etiqueta de nivel superior, pero si se echa un vistazo a ese archivo verá que contiene dos:
 
 ![image039.png](images/image039.png)
 
-I've highlighted the lines that end one HTML page and start the next one. This is technically a malformed HTML file. It becomes tough to use this with some Web browsers (Firefox 20 is choking it down, but my current Webkit browsers aren't), tough to parse if you ever need to manipulate it programmatically, and... well, it's just a bad thing. It's like incest or something. Gross.
+He resaltado las líneas que terminan una página HTML y comienzan la siguiente. Esto es técnicamente un archivo HTML malformado. Algunos navegadores Web lo admiten (unos si, otros no), difícil de analizar si alguna vez necesita para manipular el contenido mediante programación, y ... bueno, es esta mal. Es como el incesto o algo así. Inaceptable.
 
-If you need to combine multiple elements into a single HTML file, you use the -Fragment switch of ConvertTo-HTML. That produces just a portion of the HTML, and you can produce several such portions and then combine them into a single, complete page. Ahhh, nice. That whole process is covered in Creating HTML Reports in PowerShell, another free ebook that came with this one
+Si necesita combinar varios elementos en un único archivo HTML, utilice el parámetro -Fragment de ConvertTo-HTML. Produzca sólo una parte del HTML o varias porciones de ese tipo y luego combínelas en una sola página completa. Ahhh bien. Todo el proceso al respecto de la creación de informes HTML en PowerShell lo encuentra en nuestro otro libro electrónico gratuito que viene con este.
