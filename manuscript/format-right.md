@@ -1,25 +1,25 @@
-# Format right
+# Formato a la derecha
 
-Everyone runs into this one. Here's how it goes: you start by writing a truly awesome command.
+Todo el mundo se encuentra con esto. Comienza escribiendo un comando verdaderamente impresionante.
 
 ![image005.png](images/image005.png)
 
-And you think, "wow, that'd go great in an HTML file."
+Y luego piensa, "Wow, esto quedaría muy bien en un archivo HTML."
 
 ![image007.png](images/image007.png)
 
-Wait... what?!?!?
+¿¡¿¡¿Un momento QUÉ?!?!?
 
-This happens all the time. If you want an easy way to remember what not to do, it's this: Never pipe a Format command to anything else. That isn't the whole truth, and we'll get to the whole truth in a sec, but if you just want a quick answer, that's it. In the community, we call it the "Format Right" rule, because you have to move your Format command to the right-most end of the command line. That is, the Format command comes last, and nothing else comes after it.
+Sucede todo el tiempo. Si desea una manera fácil de recordar lo que no se debe hacer, es esto: nunca canalice (enviar al pipeline) la salida de un comando de formato. Esa no es toda la verdad (llegaremos a toda la verdad en un momento), pero si sólo quiere una respuesta rápida, eso es todo. En la comunidad, lo llamamos la regla del "formato a la derecha", porque tiene que ver con mover su comando Format al extremo derecho de la línea de comandos. Es decir, el comando Format va  al final, y nada más viene después de él.
 
-The reason is that the Format commands all produce special internal formatting codes, that are really just intended to create an on-screen display. Piping those codes to anything else - ConvertTo-HTML, Export-CSV, whatever - just gets you gibberish output.
+La razón es que todos los comandos de formato producen códigos de salida internos especiales, que están destinados a generar una visualización en pantalla. Canalizar esos códigos (enviarlos al pipeline) a cualquier otro comando - ConvertTo-HTML, Export-CSV, lo que sea – solo hará que se obtenga una salida ilegible.
 
-In fact, there are actually a few commands that can come after a Format command in the pipeline:
+De hecho, hay algunos comandos que pueden venir después de un comando de formato en la canalización (pipeline):
 
-1. Out-Default. This is technically always at the end of the pipeline, although it's invisible. It redirects to Out-Host.
-2. Out-Host also understands the output of Format commands, because Out-Host is how those formatting codes get on the screen in the first place.
-3. Out-Printer understands the formatting codes too, and constructs a printed page that would look exactly like the normal on-screen output.
-4. Out-File, like Out-Printer, redirects the on-screen output, but this time to a text file on disk.
-5. Out-String consumes the formatting codes and just outputs a plain string containing the text that would otherwise have appeared on-screen.
+1. Out-Default. Técnicamente siempre está al final de la canalización (pipeline), aunque sea “invisible”. Es el encargado de redirigir la salida al Host. Por eso es que vemos siempre la salida en pantalla.
+2. Out-Host también entiende la salida de los comandos de formato, porque Out-Host es la forma en la que los códigos de formato obtienen la información de lo que se debe mostrar en pantalla.
+3. Out-Printer también entiende los códigos de formato de salida y además, construye una página impresa que se vería exactamente como la salida normal en pantalla.
+4. Out-File, como Out-Printer, redirecciona la salida en pantalla, pero esta vez a un archivo de texto en disco.
+5. Out-String utiliza los códigos de formato de salida y produce una cadena simple que contiene el texto que de otro modo habría aparecido en pantalla.
 
-Apart from those exceptions - and of them, you'll mainly only ever use Out-File - you can't pipe the output of a Format command to much else and get anything that looks useful.
+Aparte de esas excepciones -y de ellas, usualmente sólo se utiliza Out-File- no se puede canalizar la salida de un comando Format a otro comando si desea obtener cualquier cosa que parezca útil.
