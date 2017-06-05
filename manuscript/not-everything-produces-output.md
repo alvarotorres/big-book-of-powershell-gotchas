@@ -1,17 +1,17 @@
-# Not Everything Produces Output
-I see this one a lot in classes:
+# No todo produce una salida
+Veo esto a menudo:
 
 ![image031.png](images/image031.png)
 
-If you expected anything on the screen in terms of output, you'd be disappointed. The trick here is to keep track of what each command produces as output, and right there is a possible point of confusion.
+Si esperaba algo en la pantalla en términos de salida, estará decepcionado. El truco aquí es hacer un seguimiento de lo que cada comando produce como salida, y es allí donde hay un posible punto de confusión.
 
-In PowerShell's world, output is what would show up on the screen if you ran the command and didn't pipe it to anything else. Yes, Export-CSV does do something - it creates a file on disk - but in PowerShell's world that file isn't output. What Export-CSV does not do is produce any output - that is, something which would show up on the screen. For example:
+En el mundo de PowerShell, la salida es lo que aparecería en la pantalla si ejecutamos el comando y no lo canalizamos (enviar al pipeline) a nada más. Sí, Export-CSV hace algo - crea un archivo en disco - pero en el mundo de PowerShell ese archivo no se ve en pantalla. Export-CSV no produce ninguna salida, hablando de algo que aparecería en la pantalla. Por ejemplo:
 
 ![image033.png](images/image033.png)
 
-See? Nothing. Since there's nothing on the screen, there's nothing in the pipeline. You can't pipe Export-CSV to another command, because there's nothing to pipe.
+¿Lo ve? nada. Ya que no hay nada en la pantalla, no hay nada en la canalización (pipeline). No puede canalizar Export-CSV a otro comando, porque no hay nada que canalizar.
 
-Some commands will include a -PassThru parameter. When they have one, and when you use it, they'll do whatever they normally do but also pass their input objects through to the pipeline, so that you can then pipe them on to something else. Export-CSV isn't one of those commands, though - it never produces output, so it will never make sense to pipe it to something else.
+Algunos comandos pueden incluir un parámetro -PassThru. Cuando lo tienen y se utiliza, harán lo que hagan normalmente, pero también pasarán sus objetos de entrada a través de la canalización (pipeline), para que luego se puedan canalizar a otra cosa. Export-CSV no es uno de esos comandos, - nunca produce una salida, por lo que nunca tendrá sentido para canalizarlo a otra cosa.
 
 ![image035.png](images/image035.png)
 
