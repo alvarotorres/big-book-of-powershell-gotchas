@@ -1,4 +1,4 @@
-# Properties vs. Values
+# Propiedades vs. Valores
 
 ```
 $names = Get-ADComputer -filter * |
@@ -7,15 +7,15 @@ $names = Get-ADComputer -filter * |
  Get-CimInstance -Class Win32_BIOS -ComputerName $names 
  ```
  
-Know why that won’t work? It’s because the result of Get-ADComputer is an object, which has properties. You probably knew that. But the result of Select-Object is also an object that has properties. Specifically, in this case, it’s “Selected” ADComputer object, having a single property: Name. 
+¿Sabe por qué esto no funcionará? Porque el resultado de Get-ADComputer es un objeto, que tiene propiedades. Usted probablemente sabía eso. Pero el resultado de Select-Object es también un objeto que tiene propiedades. Específicamente, en este caso, es un objeto "ADComputer " seleccionado, que tiene una sola propiedad: Name. 
 
-Look at the help for Get-CimInstance. The -ComputerName parameter accepts objects of the type String. It says so, right in the help! But a Selected ADComputer object isn’t the same thing as a String. The Name property you selected contains strings, but it isn’t a string itself. This is a huge distinction, and one that trips people up all the time.
+Observe la ayuda del comando Get-CimInstance. El parámetro -ComputerName acepta objetos de tipo String. Así lo la ayuda. Pero un objeto ADComputer no es lo mismo que una cadena. La propiedad Name que se ha seleccionado contiene cadenas, pero no es una cadena en sí. Esto es una distinción enorme y es mejor no olvidarse de ello.
 
-Think of a property as a box. That box can contain things, but it’s a thing in and of itself, also. In this case, the box is called Name, and it contains strings. But you can’t shove that whole box into something that was just expecting strings. “Hey, I wanted a string, not a box!”
+Piense en una propiedad como una caja. Esa caja puede contener cosas, pero es una cosa en y por sí misma, también. En este caso, la caja se denomina Name y contiene cadenas. Pero no se puede “empujar” toda la caja en algo que sólo estaba esperando Strings. "Hey, quería un String, no toda la caja"
 
-Think about a fax machine. Do you remember those? They accept pages, and transmit those pages. Now suppose you have an envelope full of pages. You can’t just shove the envelope into the fax machine and expect good results. In that analogy, the envelope is a property, and the pages inside it are values. To get the pages into the fax machine, you have to take them out of the envelope first.
+Ahora piense en un Fax. ¿Recuerda esas máquinas? Recibían y transmitían páginas. Ahora suponga que tiene un sobre lleno de páginas. No se puede “empujar” el sobre en la máquina de fax y esperar resultados correctos. En esa analogía, el sobre es una propiedad, y las páginas dentro de ella son valores. Para lograr transmitir las páginas primero debe sacarlas del sobre.
 
-What you want to do in this case is get the strings out of the box, and Select-Object offers a way of doing that:
+Lo que quiere hacer en este caso es extraer las cadenas (Strings) de la caja, y Select-Object ofrece una manera de hacer eso:
 
 ```
 $names = Get-ADComputer -filter * |
@@ -24,7 +24,7 @@ $names = Get-ADComputer -filter * |
  Get-CimInstance -Class Win32_BIOS -ComputerName $names
 ```
 
-See the difference? -ExpandProperty gets just the contents of the specified property, rather than returning an object that only has that property. Want a simple way to test this in the shell? Run these commands:
+¿Ve la diferencia? -ExpandProperty obtiene sólo el contenido de la propiedad especificada, en lugar de devolver un objeto que sólo tiene esa propiedad. ¿Quiere una manera sencilla de probar esto en el shell? Ejecute estos comandos:
 
 ```
 Get-Service | Select -Property Name | Get-Member
