@@ -1,11 +1,11 @@
 # New-Object PSObject vs. PSCustomObject
-There’s often some confusion in regards to the differences between using New-Object PSObject and PSCustomObject, as well as how the two work.
+A menudo hay cierta confusión en lo que respecta a las diferencias entre el uso de nuevo objeto PSObject y PSCustomObject, así como el funcionamiento de ambos.
 
-Either approach can be used to take a set of values from a collection of PowerShell objects and collate them into a single output.  As well, both avenues will output the data as NoteProperties in the System.Management.Automation.PSCustomObject object types.  So what’s the big deal between them?
+Cualquiera de los dos se puede utilizar para formar un conjunto de valores en una colección de objetos PowerShell y agruparlos en una sola entidad. Asimismo, ambas formas darán salida a los datos como NoteProperties en los tipos de objeto System.Management.Automation.PSCustomObject. Así que ¿cuál es la gran diferencia entre ellos?
 
-For starters, the New-Object cmdlet was introduced in PowerShell v1.0 and has gone through a number of changes, while the use of the PSCustomObject class came later in v3.0.  For systems using PowerShell v2.0 or earlier, New-Object must be used.  The key difference between the 2.0 version and 1.0 version from an administrative point of view is that 2.0 allows the use of hash tables.  For example:
+Para empezar, el Cmdlet New-Object fue introducido en PowerShell v1.0 y ha pasado por una serie de cambios, mientras que el uso de la clase PSCustomObject vino más tarde en la versión 3.0. Para los sistemas que utilicen PowerShell v2.0 o anterior, se debe utilizar New-Object. La diferencia clave entre la versión 2.0 y la versión 1.0 desde un punto de vista administrativo es que 2.0 permite el uso de tablas hash. Por ejemplo:
 
-## New-Object PSObject in v1.0
+## New-Object PSObject en v1.0
 
 ```
 $Path = "c:\scripts"
@@ -24,9 +24,9 @@ ForEach ($Dir in $Directory.Access){
 }
 ```
 
-With the New-Object method in PowerShell v1.0, you have to declare the object type you want to create and add members to the collection in individual commands.  This changed however in v2.0 with the ability to use hashtables:
+Con el método New-Object en PowerShell v1.0, tiene que declarar el tipo de objeto que desea crear y agregar miembros a la colección en comandos de forma individual. Sin embargo en la versión 2.0 con la capacidad de utilizar hashtables:
 
-## New-Object in PS 2.0
+## New-Object en PS 2.0
 
 ```
 $Path = "c:\scripts"
@@ -48,12 +48,13 @@ ForEach ($Dir in $Directory.Access){
 }
 ```
 
-Here's the output:
+Aquí está la salida:
+
 ![Note theorder of output vs. order in the hash table](images/PSObject1.jpg)
 
-This saved a lot of overhead in typing and provided a cleaner looking script.  However, both methods have the same problem in that the output is not necessarily in the same order as you have it listed, so if you’re looking for a particular format, it may not work.  PSCustomObject fixed this when it was introduced in v3.0, along with providing more streamlining in your scripts.
+Esta forma nos ahorra una gran cantidad de escritura al mismo tiempo que permite un script más limpio. Sin embargo ambos métodos tienen el mismo problema. La salida no está necesariamente en el mismo orden en que se ha declarado, así que si está buscando un formato determinado, puede que no funcione. PSCustomObject corrigió esto cuando fue introducido en la versión 3.0.
 
-## PSCustomObject in PowerShell v3.0
+## PSCustomObject en PowerShell v3.0
 ```
 $Path = "c:\scripts"
 $Directory = Get-Acl -Path $Path
@@ -71,7 +72,7 @@ ForEach ($Dir in $Directory.Access){
 
 ![Note the order of the properties](images/PSObject2.jpg)
 
-As demonstrated, your output will always match what you have defined in your hashtable.  Another advantage of using PSCustomObject is that it has been noted to enumerate the data faster than its New-Object counterpart.  The only thing to keep in mind with PSCustomObject is that it will not work with systems running PSv2.0 or earlier.
+Como se puede observar, la salida siempre coincidirá con lo que se ha definido en el Hashtable. Otra ventaja de usar PSCustomObject es que la enumeración de los datos se hace más rápidamente que su contraparte New-Object. Lo único que debe tener en cuenta con PSCustomObject es que no funcionará con los sistemas que ejecutan PowerShell  v2.0 o anteriores.
 
 
 
