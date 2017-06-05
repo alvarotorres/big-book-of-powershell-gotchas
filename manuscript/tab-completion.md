@@ -1,11 +1,11 @@
-# Tab Completion
-It's sad and amazing how few people rely on tab completion, both in the PowerShell ISE and in the console window.
+# Finalización con Tab
+Es triste y sorprendente ver cómo pocas personas confían en la terminación con la tecla Tab, tanto en el PowerShell ISE como en la ventana de la consola.
 
-- When you tab complete, you'll never spell commands or parameter names wrong
+- Cuando se completa con Tab, nunca digitara comandos o nombres de parámetros incorrectos
 
-- For many parameter values that are static lists, or easily-queried lists, tab completion (especially in v3 and later) can fill-in legal parameter values for you
+- Para muchos valores de parámetros que son listas estáticas o listas de fácil consulta, la terminación con Tab (especialmente en v3 y posteriores) puede completar los valores de dichos parámetros
 
-- Tab completion makes long cmdlet names a lot easier to type, without the need for difficult-to-remember aliases.
+- La terminación con Tab hace que los nombres de Cmdlet largos sean mucho más fáciles de escribir, sin necesidad de conocer un alias de difícil o tener que memorizar el nombre completo.
 
-Get into the habit of using tab completion all the time, and you're guaranteed to make fewer mistakes.
+Mantenga el hábito de usar la terminación con Tab todo el tiempo que sea posible. Le garantizará cometer menos errores.
 
