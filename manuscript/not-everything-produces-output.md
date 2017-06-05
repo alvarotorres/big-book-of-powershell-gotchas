@@ -13,5 +13,5 @@ En el mundo de PowerShell, la salida es lo que aparecería en la pantalla si eje
 
 Algunos comandos pueden incluir un parámetro -PassThru. Cuando lo tienen y se utiliza, harán lo que hagan normalmente, pero también pasarán sus objetos de entrada a través de la canalización (pipeline), para que luego se puedan canalizar a otra cosa. Export-CSV no es uno de esos comandos, - nunca produce una salida, por lo que nunca tendrá sentido para canalizarlo a otra cosa.
 
-![image035.png](images/image035.png)
+![image034png](images/image034.png)
 
