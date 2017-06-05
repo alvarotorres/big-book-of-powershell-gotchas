@@ -1,6 +1,6 @@
-# Remote Variables
+# Variables Remotas
 
-When using PowerShell remoting, you need to remember that you’re dealing with two or more computers that don’t share information between them. For example, the following command will run fine on your local computer:
+Cuando utilice PowerShell Remoting, debe recordar que se trata de dos o más equipos que no comparten información entre ellos. Por ejemplo, el siguiente comando funcionará correctamente en su equipo local:
 
 ```
 $f1 = 'D:\Scripts\folder1'
@@ -8,7 +8,7 @@ $f2 = 'D:\Scripts\folder2'
 Copy-Item -Path $f1 -Recurse -Destination $f2 -Verbose -Force
 ```
 
-However, if you try to run just the Copy-Item command on a remote computer, it will fail:
+Sin embargo, si intenta ejecutar el comando Copy-Item en un equipo remoto, se producirá un error:
 
 ```
  $f1 = "D:\Scripts\folder1"
@@ -23,9 +23,9 @@ However, if you try to run just the Copy-Item command on a remote computer, it w
 
 ```
 
-The problem here is that $f1 and $f2 are defined on _your_ computer, but not on the remote computer. The script block passed by Invoke-Command isn’t evaluated on _your_ computer, it’s simply passed as-is.
+El problema es que $f1 y $f2 se definen en su equipo local, pero no en el equipo remoto. El bloque de secuencia de comandos enviado a Invoke-Command no se evalúa en su computadora, simplemente se pasa como está (as-is).
 
-There are two possible fixes. The first is to simply include the variable definitions in the script block:
+Hay dos posibles soluciones. La primera es simplemente incluir las definiciones de variables en el bloque de secuencia de comandos:
 
 ```
  Invoke-Command -ComputerName MemberServer -ScriptBlock {
@@ -35,7 +35,7 @@ There are two possible fixes. The first is to simply include the variable defini
  }
  ```
  
-Another technique, available in PowerShell v3 and later, is to use the $using variable designator. PowerShell pre-scans the script block for these, and will pass along your local variable values to the remote computer(s);
+Otra técnica, disponible en PowerShell v3 y posterior, es utilizar el designador de variable $using. PowerShell pre-escanea el bloque de secuencia de comandos para y pasará los valores de la(s) variable(s) local al (los) equipo(s) remoto(s).
 
 ```
  $f1 = "D:\Scripts\folder1"
@@ -45,5 +45,5 @@ Another technique, available in PowerShell v3 and later, is to use the $using va
  Copy-Item -Path $using:f1 -Recurse -Destination $using:f2 -Verbose -Force}
 ```
 
-The special $using: syntax is what makes this version of the command work.
+El uso de la sintaxis especial $using: es lo que hace que esta versión del comando funcione.
  
