@@ -20,5 +20,5 @@ Y mi comando Where-Object estaba comprobando la propiedad Status. ¿Ve una propi
 
 (Sí, sería mejor si PowerShell lanzara un error - "hey, pidio filtrar la propiedad Status, y no hay una!" - pero eso no así cómo funciona).
 
-Moraleja de la historia: prestar atención a lo que está en la canalización (pipeline). No se puede trabajar con algo que no se tiene. No siempre obtendrá un mensaje de error útil, por lo que a veces tendrá que escarbar y averiguarlo de otra manera - como retroceder un paso.
+Moraleja de la historia: prestar atención a lo que está en la canalización (pipeline). No se puede trabajar con algo que no se tiene. No siempre obtendrá un mensaje de error útil, por lo que a veces tendrá que escarbar y averiguarlo de otra manera - como retrocediendo un paso.
 
