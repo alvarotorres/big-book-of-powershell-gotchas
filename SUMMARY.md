@@ -3,7 +3,7 @@
 * [Léame](README.md)
 * [Acerca de este libro](manuscript/About.md)
 * [Formato a la derecha](manuscript/format-right.md)
-* [¿Dónde está el comando <SuNombreAqui>?](manuscript/where-is-the-____-command.md)
+* [¿Dónde está el comando \<SuNombreAqui\>?](manuscript/where-is-the-____-command.md)
 * [PowerShell.exe no es PowerShell](manuscript/powershellexe-isnt-powershell.md)
 * [Acumulando la salida en una función](manuscript/accumulating-output-in-a-function.md)
 * [ForEach vs ForEach vs ForEach](manuscript/foreach-vs-foreach-vs-foreach.md)
