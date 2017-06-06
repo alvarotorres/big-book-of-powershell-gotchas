@@ -1,24 +1,24 @@
-# You Can’t Have What You Don’t Have
+# No puede tener lo que no se tiene
 
-Can you see what's wrong with this approach?
+¿Puede ver lo que está mal?
 
 ![image023.png](images/image023.png)
 
-I mean, I'm pretty sure I have some running services, which is what this was supposed to display.
+Quiero decir, estoy bastante seguro de que tengo algunos servicios en ejecución. Se supone que algo se debía mostrar.
 
-If you don't see the answer right away - or frankly, even if you do - this is a good time to talk about how to troubleshoot long command lines. Start, as I always say, by backing off a step. Delete the last command, and see if that does anything different.
+Si no ve la respuesta de inmediato - o no la ve - es un buen momento para hablar acerca de cómo solucionar problemas con algunas líneas de comandos. Para empezar, como siempre digo, retrocediendo un paso. Elimine el último comando, y vea si eso hace alguna diferencia.
 
 ![image025.png](images/image025.png)
 
-In this case, I removed the Sort-Object (Sort) command, and nothing different happened. So that wasn't causing the problem. Next, I removed the Where-Object (Where, using v3 short syntax) command, and ah-ha! I got output. So something broke with Where-Object. Let's take what did work and pipe it to Get-Member, to see what's in the pipeline after Select-Object runs.
+En este caso, quité el comando Sort-Object (Sort) y no ocurrió nada diferente, así que eso no era la causa del problema. A continuación, eliminé el comando Where-Object (Where, en la sintaxis corta de v3), y ah-ha! Apareció la salida. Así que algo el comando Where-Object está “rompiendo” algo. Vamos a revisar lo que funcionó y a canalizarlo a Get-Member, para ver qué hay en la canalización (pipeline) después de ejecutar Select-Object.
 
 ![image027.png](images/image027.png)
 
-OK, I have an object that has a DisplayName property and a Name property.
+OK, tengo un objeto que tiene una propiedad DisplayName y una propiedad Name.
 
-And my Where-Object command was checking the Status property. Do you see a Status property? No, you do not. My error is that I removed the Status property when I didn't include it in the property list of Select-Object. So Where-Object had nothing to work with, so it returned nothing.
+Y mi comando Where-Object estaba comprobando la propiedad Status. ¿Ve una propiedad Status? No, no se ve. Mi error es que quité la propiedad Status cuando no la incluí en la lista de la del comando Select-Object. Así que el objeto no tenía nada contra qué trabajar y no devolvió nada.
 
-(Yeah, it'd be cooler if it threw an error - "Hey, you said to filter on the Status property, and there ain't one!" - but that isn't how it works.)
+(Sí, sería mejor si PowerShell lanzara un error - "hey, pidio filtrar la propiedad Status, y no hay una!" - pero eso no así cómo funciona).
 
-Moral of the story: Pay attention to what's in the pipeline. You can't work with something you don't have, and you might have taken it away yourself. You won't always get a helpful error message, so sometimes you'll need to dig in and figure it out another way - such as backing off a step.
+Moraleja de la historia: prestar atención a lo que está en la canalización (pipeline). No se puede trabajar con algo que no se tiene. No siempre obtendrá un mensaje de error útil, por lo que a veces tendrá que escarbar y averiguarlo de otra manera - como retroceder un paso.
 
