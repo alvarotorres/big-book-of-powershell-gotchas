@@ -1,6 +1,6 @@
 # Resumen
 
-* [Leame](README.md)
+* [Léame](README.md)
 * [Acerca de este libro](manuscript/About.md)
 * [Formato a la derecha](manuscript/format-right.md)
 * [¿Dónde está el comando <SuNombreAqui>?](manuscript/where-is-the-____-command.md)
