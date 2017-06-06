@@ -1,7 +1,7 @@
-# Writing to SQL Server
-Saving data to SQL Server - versus Excel or some other contraption - is easy.
+# Escribiendo en SQL Server
+Guardar datos en un servidor SQL - frente a Excel o algún otro formato - es muy fácil.
 
-Assume that you have SQL Server Express installed locally. You've created in it a database called MYDB, and in that a table called MYTABLE. The table has ColumnA and ColumnB, which are both strings (VARCHAR) fields. And the database file is in c:\myfiles\mydb.mdf. This is all easy to set up in a GUI if you download SQL Server Express "with tools" edition. And it's free!
+Suponga que tiene SQL Server Express instalado localmente. Ha creado una base de datos llamada mydb y una tabla llamada mytable. La tabla tiene dos columnas ColumnA y ColumnB, y ambas son campos de cadenas (varchar). El archivo de base de datos está ubicado en c:\myfiles\mydb.mdf. Esto es muy fácil de configurar en un GUI si descarga la versión de SQL Server Express "con herramientas". Es gratis!
 
 ```
 $cola = "Data to go into ColumnA"
@@ -21,7 +21,7 @@ $command.ExecuteNonQuery()
 $connection.close()
 ```
 
-You can insert lots of values by just looping through the three lines that define the SQL statement and execute it:
+Puede insertar una gran cantidad de valores simplemente haciendo un bucle a través de las tres líneas que definen la sentencia SQL y ejecutarla:
 
 ```
 $cola = @('Value1','Value2','Value3')
@@ -43,4 +43,4 @@ for ($i=0; $i -lt 3; $i++) {
 $connection.close()
 ```
 
-It's just as easy to run UPDATE or DELETE queries in exactly the same way. SELECT queries use ExecuteReader() instead of ExecuteNonQuery(), and return a SqlDataReader object that you can use to read column data or advance to the next row.
+Es igual de fácil ejecutar consultas de actualización o eliminación. Las consultas de selección usan ExecuteReader() en lugar de ExecuteNonQuery() y devuelven un objeto SqlDataReader que se puede utilizar para leer datos de cada columna o avanzar a la siguiente fila en el conjunto de resultados.
