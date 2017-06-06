@@ -10,7 +10,7 @@ Si no ve la respuesta de inmediato - o no la ve - es un buen momento para hablar
 
 ![image025.png](images/image025.png)
 
-En este caso, quité el comando Sort-Object (Sort) y no ocurrió nada diferente, así que eso no era la causa del problema. A continuación, eliminé el comando Where-Object (Where, en la sintaxis corta de v3), y ah-ha! Apareció la salida. Así que algo el comando Where-Object está “rompiendo” algo. Vamos a revisar lo que funcionó y a canalizarlo a Get-Member, para ver qué hay en la canalización (pipeline) después de ejecutar Select-Object.
+En este caso, quité el comando Sort-Object (Sort) y no ocurrió nada diferente, así que eso no era la causa del problema. A continuación, eliminé el comando Where-Object (Where, en la sintaxis corta de v3), y ah-ha! Apareció la salida. Así que el comando Where-Object está “rompiendo” algo. Vamos a revisar lo que funcionó y a canalizarlo a Get-Member, para ver qué hay en la canalización (pipeline) después de ejecutar Select-Object.
 
 ![image027.png](images/image027.png)
 
