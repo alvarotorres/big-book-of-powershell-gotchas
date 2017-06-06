@@ -16,7 +16,7 @@ En este caso, quité el comando Sort-Object (Sort) y no ocurrió nada diferente,
 
 OK, tengo un objeto que tiene una propiedad DisplayName y una propiedad Name.
 
-Y mi comando Where-Object estaba comprobando la propiedad Status. ¿Ve una propiedad Status? No, no se ve. Mi error es que quité la propiedad Status cuando no la incluí en la lista de la del comando Select-Object. Así que el objeto no tenía nada contra qué trabajar y no devolvió nada.
+Y mi comando Where-Object estaba comprobando la propiedad Status. ¿Ve una propiedad Status? No, no se ve. Mi error es que quité la propiedad Status cuando no la incluí en la lista de salida del comando Select-Object. Así que el objeto no tenía nada contra qué trabajar y no devolvió nada.
 
 (Sí, sería mejor si PowerShell lanzara un error - "hey, pidio filtrar la propiedad Status, y no hay una!" - pero eso no así cómo funciona).
 
